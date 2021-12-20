@@ -1,0 +1,13 @@
+@mixin make-cols($basis: 115px, $gap: 14px) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+  > * {
+    flex: 1 1 $basis;
+    img {
+      @extend %responsive;
+    }
+  }
+}
+
+

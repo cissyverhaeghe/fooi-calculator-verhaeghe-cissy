@@ -1,0 +1,214 @@
+@use "./base/reset";
+@use "./base/extends";
+@use "./base/variables" as *;
+@use "./base/fonts" as *;
+@use "./base/mixins" as *;
+@use "./icons/icons";
+
+::placeholder {
+  @include font(13px, 20px, $placeholder);
+  opacity: 0.8;
+}
+
+body {
+  background-color: $lightgrayishcyan;
+}
+
+header {
+  text-align: center;
+  padding-bottom: 55px;
+  padding-top: 100px;
+  &:before {
+    color: $logokleur;
+    content: "\e902";
+    font-family: icons;
+    font-size: 40px;
+  }
+}
+
+main {
+  background-color: $white;
+  width: 64%;
+  max-width: 1100px;
+  min-height: 200px;
+  margin: 0 auto;
+  border-radius: 25px;
+  display: flex;
+  padding: 32px;
+  gap: 41px;
+}
+
+form {
+  min-height: 50px;
+  width: 50%;
+}
+
+.form {
+  @include font();
+  padding: 3px;
+  padding-bottom: 10px;
+  &__label {
+    display: block;
+    position: relative;
+    padding-bottom: 5px;
+    &:last-of-type {
+      &:after {
+        content: "\e901";
+      }
+    }
+    &:after {
+      font-family: icons;
+      font-size: 15px;
+      font-weight: 400;
+      content: "\e900";
+      color: $placeholder;
+      position: absolute;
+      z-index: 1;
+      top: 38px;
+      left: 14px;
+    }
+
+    &:nth-of-type(2) {
+      &:after {
+        display: none;
+      }
+      padding-top: 35px;
+      padding-bottom: 10px;
+    }
+  }
+  &__input {
+    background-color: $light;
+    width: 100%;
+    border: none;
+    border-radius: 3px;
+    text-align: right;
+    padding: 7px 15px 7px 30px;
+    outline: none;
+    cursor: pointer;
+    @include font(20px, 20px, $verydarkcyan);
+    &--selected {
+      border: 2px solid $brightcyan;
+    }
+    &--error {
+      border: 2px solid $red;
+      position: relative;
+    }
+  }
+  &__percentages {
+    @include make-cols();
+    padding-bottom: 40px;
+    &__percentage {
+      @include font(20px, 20px, $white);
+      background-color: $verydarkcyan;
+      text-align: center;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: $selectedcyan;
+      }
+    }
+    &__percentage:last-of-type {
+      background: transparent;
+      padding: 0;
+    }
+    &__custom {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: none;
+      background-color: $light;
+      text-align: center;
+      padding: 0;
+      border-radius: 5px;
+      @include font(20px, 20px, $verydarkcyan);
+      cursor: pointer;
+      &::placeholder {
+        color: $darkgrayishcyan;
+        font-size: 20px;
+      }
+      &--selected {
+        border: 2px solid $brightcyan;
+      }
+    }
+  }
+}
+
+.output {
+  padding: 40px;
+  background-color: $verydarkcyan;
+  min-height: 50px;
+  width: 50%;
+  border-radius: 15px;
+  & .row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 60px;
+    &:nth-of-type(2) {
+      padding-bottom: 120px;
+    }
+  }
+  p {
+    @include font(20px, 20px, $white);
+    padding-bottom: 4px;
+    &:nth-of-type(2) {
+      @include font();
+    }
+  }
+  & .amount {
+    @include font(30px, 20px, $brightcyan);
+  }
+  &__button {
+    margin: 0 auto;
+    min-height: 10px;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+    background-color: #0d686d;
+    color: #065f65;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    @include font(25px, 20px, #065f65);
+    border-radius: 5px;
+    &--active {
+      background-color: $brightcyan;
+    }
+    &:hover {
+      background-color: $selectedcyan;
+    }
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  main {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  main {
+    width: 100%;
+    display: block;
+  }
+  form,
+  .output {
+    width: 100%;
+  }
+  form {
+    margin-bottom: 20px;
+  }
+  .output {
+    padding: 20px;
+    padding-top: 40px;
+    & .row {
+      padding-bottom: 20px;
+      &:nth-of-type(2) {
+        padding-bottom: 30px;
+      }
+    }
+    p:first-of-type {
+      font-size: 15px;
+    }
+  }
+}

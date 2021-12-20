@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Splitter</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <form action="" class="form" spellcheck="false">
+        <label class="form__label">Bill</label>
+        <input
+          type="number"
+          name="bill"
+          id="bill"
+          placeholder="Amount"
+          class="form__input form__input--selected"
+        />
+        <label class="form__label">Select Tip %</label>
+        <div class="form__percentages">
+          <div class="form__percentages__percentage">5%</div>
+          <div class="form__percentages__percentage">10%</div>
+          <div class="form__percentages__percentage">15%</div>
+          <div class="form__percentages__percentage">25%</div>
+          <div class="form__percentages__percentage">50%</div>
+          <div class="form__percentages__percentage">
+            <input
+              type="number"
+              name="custompercentage"
+              id="custompercentage"
+              placeholder="Custom"
+              class="
+                form__percentages__custom form__percentages__custom--selected
+              "
+            />
+          </div>
+        </div>
+        <label class="form__label">Number of People</label>
+        <input
+          type="number"
+          name="bill"
+          id="bill"
+          placeholder="Amount"
+          class="form__input form__input--error"
+        />
+      </form>
+      <div class="output">
+        <div class="row">
+          <div class="text">
+            <p>Tip Amount</p>
+            <p>/ person</p>
+          </div>
+          <div class="amount">$0.00</div>
+        </div>
+        <div class="row">
+          <div class="text">
+            <p>Total</p>
+            <p>/ person</p>
+          </div>
+          <div class="amount">$0.00</div>
+        </div>
+        <button class="output__button output__button--active">RESET</button>
+      </div>
+    </main>
+  </body>
+</html>
